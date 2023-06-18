@@ -1,0 +1,32 @@
+<p>user-form works!</p>
+<p>user-form works!</p>
+<p>user-form works!</p>
+
+
+<form [formGroup]="form" autocomplete="off">
+<!--  <app-custom-mask formControlName="counter"></app-custom-mask>-->
+
+<!--  <app-custom-masked-input #mdInputEl class="spacer" [formControl]="mdInput"></app-custom-masked-input>-->
+
+
+
+
+  <app-custom-masked-input
+    [title]="'Card Number'"
+    formControlName="card"
+    [mask]="cardMask"></app-custom-masked-input>
+</form>
+
+<span *ngIf="form.valid">Credit card number is valid</span>
+<pre>Card control value: {{form.value}}</pre>
+<!--<form [formGroup]="cardForm" (ngSubmit)="submitState(localState.value)" autocomplete="off">-->
+
+<!--  <md-input-->
+<!--    [title]="'Card Number'"-->
+<!--    formControlName="card"-->
+<!--    [mask]="cardMask"></md-input>-->
+
+<!--  <button class="btn">-->
+<!--    <span>Submit</span>-->
+<!--  </button>-->
+<!--</form>-->
