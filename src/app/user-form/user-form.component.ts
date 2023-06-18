@@ -12,7 +12,9 @@ export class UserFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
 
-  public cardMask = [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  //public cardMask = [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
+  public cardMask = [/\d/, /\d/, /\d/, /\d/, ':', /\d/, /\d/, /\d/, /\d/, ':', /\W*/];
 
   ngOnInit(): void {
     this.form = this.fb.group({

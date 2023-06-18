@@ -42,6 +42,10 @@ export class CustomMaskedInputComponent implements ControlValueAccessor, OnInit 
   private currentCursorPosition: number = 0;
   private readonly placeholderChar: string = '_';
 
+  get maskLength() {
+    return this.mask.length;
+  }
+
   constructor() {
   }
 
@@ -75,6 +79,7 @@ export class CustomMaskedInputComponent implements ControlValueAccessor, OnInit 
     }).join('');
   }
 
+  //TODO добавить проверку  maskLength, чтобы после нее можно было ставить любой символ
   private conformValue(value: string, placeholder: string): { conformed: string, cleaned: string } {
     const editDistance = value.length - this.previousValue.length;
     const isAddition = editDistance > 0;
@@ -267,7 +272,6 @@ export class CustomMaskedInputComponent implements ControlValueAccessor, OnInit 
         }
       }
     }
-    console.log("последний вариант");
     return 0;
   }
 
@@ -293,9 +297,5 @@ export class CustomMaskedInputComponent implements ControlValueAccessor, OnInit 
     this.mdInput.setValue(value);
   }
 
-  private _convertMaskToPlaceholder(): string {
-    return this.mask.map((char) => {
-      return (char instanceof RegExp) ? this.placeholderChar : char;
-    }).join('');
-  }
+
 }
